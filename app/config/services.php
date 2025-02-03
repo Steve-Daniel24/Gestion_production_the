@@ -4,14 +4,6 @@ use flight\Engine;
 use flight\database\PdoWrapper;
 use flight\debug\database\PdoQueryCapture;
 use Tracy\Debugger;
-use app\models\vehiculeModel;
-use app\models\CueilleurModel;
-use app\models\ParcelleModel;
-use app\models\VarieteTheModel;
-use app\models\CategorieDepenseModel;
-use app\models\DepenseModel;
-use app\models\ConfigurationModel;
-use app\models\CueilletteModel;
 
 /** 
  * @var array $config This comes from the returned array at the bottom of the config.php file
@@ -34,35 +26,3 @@ $app->register('db', $pdoClass, [$dsn, $config['database']['user'] ?? null, $con
 
 // Redis? This is where you'd set that up
 // $app->register('redis', Redis::class, [ $config['redis']['host'], $config['redis']['port'] ]);
-
-Flight::map('ParcelleModel', function () {
-    return new ParcelleModel();
-});
-
-Flight::map('vehiculeModel', function () {
-    return new vehiculeModel(Flight::db());
-});
-                                                                                                                                                                                           
-Flight::map('CueilleurModel', function () {
-    return new CueilleurModel();
-});
-
-Flight::map('VarieteTheModel', function () {
-    return new VarieteTheModel();
-});
-
-Flight::map('CategorieDepenseModel', function () {
-    return new CategorieDepenseModel();
-});
-
-Flight::map('DepenseModel', function () {
-    return new DepenseModel();
-});
-
-Flight::map('ConfigurationModel', function () {
-    return new ConfigurationModel();
-});
-
-Flight::map('CueilletteModel', function () {
-    return new CueilletteModel();
-});
